@@ -1,11 +1,13 @@
 # Docker Ubuntu VNC
 
-A lightweight (519 MB) Linux workstation based on [Ubuntu](https://ubuntu.com/). Provides a **graphical desktop**, and **VNC** / **SSH** access.
+A lightweight (531 MB) Linux workstation based on [Ubuntu](https://ubuntu.com/). Provides a **graphical desktop**, and **VNC** / **SSH** access.
 
+
+*Viacheslav Karpizin (karpizin at gmail.com)*
 *Ramon Solano (ramon.solano at gmail.com)*
 
-**Last update**: Mar/3/2021.  
-**Base image**: [Ubuntu 20.04 (focal-20210119)](https://hub.docker.com/_/ubuntu)
+**Last update**: Dec/30/2023.  
+**Base image**: [Ubuntu 22.04 (latest)](https://hub.docker.com/_/ubuntu)
 
 
 ## Main packages
@@ -39,13 +41,13 @@ A lightweight (519 MB) Linux workstation based on [Ubuntu](https://ubuntu.com/).
 	* To run an ephemeral VNC session (port 5900):
 
 		```sh
-	   $ docker run --rm -p 5900:5900 rsolano/ubuntu-vnc
+	   $ docker run --rm -p 5900:5900 ghcr.io/xtile/docker_ubuntu-vnc_test
 	   ```
 	   
 	* To run an ephemeral VNC + SSH session (port 5900 and 2222):
 
 		```sh
-	   $ docker run --rm -p 5900:5900 -p 2222:22 rsolano/ubuntu-vnc
+	   $ docker run --rm -p 5900:5900 -p 2222:22 ghcr.io/xtile/docker_ubuntu-vnc_test
 	   ```
    
 3. Connect to the virtual computer using a VNC viewer (such as the [RealVNC viewer](https://www.realvnc.com/en/connect/download/viewer/)).
@@ -71,11 +73,11 @@ If you want to customize the image or use it for creating a new one based on thi
 
 ```sh
 # clone git repository
-$ git clone https://github.com/rwildcat/docker_ubuntu-vnc.git
+$ git clone https://github.com/xtile/docker_ubuntu-vnc.git
 
 # build image
 $ cd docker_ubuntu-vnc
-$ docker build -t rsolano/ubuntu-vnc .
+$ docker build -t ghcr.io/xtile/docker_ubuntu-vnc_test .
 ```
 
 ---
@@ -175,8 +177,8 @@ Once VNC is tunneled through SSH, you can connect your VNC viewer to you specifi
 	
 		```
 		$ docker ps
-		CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                                          NAMES
-		ac46f0cf41d1        rsolano/ubuntu-vnc   "/usr/bin/supervisor…"   58 seconds ago      Up 57 seconds       0.0.0.0:5900->5900/tcp, 0.0.0.0:2222->22/tcp   wizardly_bohr
+		CONTAINER ID        IMAGE                                  COMMAND                  CREATED             STATUS              PORTS                                          NAMES
+		ac46f0cf41d1        ghcr.io/xtile/docker_ubuntu-vnc_test   "/usr/bin/supervisor…"   58 seconds ago      Up 57 seconds       0.0.0.0:5900->5900/tcp, 0.0.0.0:2222->22/tcp   wizardly_bohr
 		```
 
 	2. Stop the desired container Id (ac46f0cf41d1 in this case):
