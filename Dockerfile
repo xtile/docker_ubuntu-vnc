@@ -1,7 +1,7 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # default screen size
-ENV XRES=1280x800x24
+ENV XRES=1600x900x24
 
 # default tzdata
 ENV TZ=Etc/UTC
